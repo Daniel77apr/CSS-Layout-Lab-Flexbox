@@ -24,6 +24,7 @@ String.prototype.removeClass = function(...str) {
 const select = document.getElementsByTagName("select");
 const input = document.getElementsByTagName("input");
 
+
 function changeClass(section) {
     // Depending on the given section number, removes certain classes from the container div in that section and adds new ones based on the selector values in the code div.
     return function() {
