@@ -21,31 +21,67 @@ String.prototype.removeClass = function(...str) {
     return newArr.join(" ");
 };
 
-const select = document.getElementsByTagName("select");
-const input = document.getElementsByTagName("input");
+const selectEls = document.getElementsByTagName("select");
+const inputEls = document.getElementsByTagName("input");
 
+const sectionArr = [
+    {},
+    {
+        inputs: [selectEls[0]],
+        classes: ["row", "row-reverse", "column", "column-reverse"],
+        div: document.getElementById(`div1`)
+    },
+    {
+        inputs: [selectEls[1]],
+        classes: ["nowrap", "wrap", "wrap-reverse"],
+        div: document.getElementById(`div2`)
+    },
+    {
+        inputs: [selectEls[2]],
+        classes: ["justify-content-flex-start", "justify-content-flex-end", "justify-content-center", "justify-content-space-between", "justify-content-space-around", "justify-content-space-evenly"],
+        div: document.getElementById(`div3`)
+    },
+    {
+        inputs: [selectEls[3]],
+        classes: ["align-items-stretch", "align-items-flex-start", "align-items-flex-end", "align-items-center", "align-items-baseline"],
+        div: document.getElementById(`div4`)
+    },
+    {
+        inputs: [selectEls[4], selectEls[5]],
+        classes: ["align-content-stretch", "align-content-flex-start", "align-content-flex-end", "align-content-center", "align-content-space-between", "align-content-space-around", "align-content-space-evenly", "align-items-stretch", "align-items-flex-start", "align-items-flex-end", "align-items-center", "align-items-baseline"],
+        div: document.getElementById(`div5`)
+    },
+    {
+        inputs: [inputEls[0], inputEls[1], inputEls[2], inputEls[3]],
+        property: "order",
+        divs: document.getElementsByClassName("dynamic-item0")        
+    },
+    {
+        inputs: [inputEls[4], inputEls[5], inputEls[6]],
+        property: "flexGrow",
+        divs: document.getElementsByClassName("dynamic-item1")        
+    },
+    {
+        inputs: [inputEls[7], inputEls[8], inputEls[9]],
+        property: "flexShrink",
+        divs: document.getElementsByClassName("dynamic-item2")
+    },
+    {
+        inputs: [selectEls[6]],
+        classes: ["align-self-auto", "align-self-stretch", "align-self-flex-start", "align-self-flex-end", "align-self-center", "align-self-baseline"],
+        div: document.getElementById(`div9`)
+    }
+]
 
 function changeClass(section) {
     // Depending on the given section number, removes certain classes from the container div in that section and adds new ones based on the selector values in the code div.
     return function() {
-        const classes = [
-            ["row", "row-reverse", "column", "column-reverse"],
-            ["nowrap", "wrap", "wrap-reverse"],
-            ["justify-content-flex-start", "justify-content-flex-end", "justify-content-center", "justify-content-space-between", "justify-content-space-around", "justify-content-space-evenly"],
-            ["align-items-stretch", "align-items-flex-start", "align-items-flex-end", "align-items-center", "align-items-baseline"],
-            ["align-content-stretch", "align-content-flex-start", "align-content-flex-end", "align-content-center", "align-content-space-between", "align-content-space-around", "align-content-space-evenly", "align-items-stretch", "align-items-flex-start", "align-items-flex-end", "align-items-center", "align-items-baseline"],
-            [], [], [], // Do NOT remove
-            ["align-self-auto", "align-self-stretch", "align-self-flex-start", "align-self-flex-end", "align-self-center", "align-self-baseline"]
-        ];
-        const div = document.getElementById(`div${section}`);
-        div.className = div.className.removeClass(...classes[section - 1]);
-        if (section < 9) {
-            div.className += ` ${select[section - 1].value}`;
-            if(section == 5) {
-                div.className += ` ${select[section].value}`;
-            }
-        } else {
-            div.className += ` ${select[section - 3].value}`;
+        const currentDiv = sectionArr[section].div
+        const currentClasses = sectionArr[section].classes
+        const currentInputs =sectionArr[section].inputs
+        currentDiv.className = currentDiv.className.removeClass(...currentClasses);
+        for(let i = 0; i < currentInputs.length; i++) {
+            currentDiv.className += ` ${currentInputs[i].value}`;
         }
     }
 }
@@ -53,30 +89,21 @@ function changeClass(section) {
 function changeStyle(section) {
     // Depending on the given section number, changes a the value of a predetermined style property given in the respective input element.
     return function() {
-        const itemGroup = document.getElementsByClassName(`dynamic-item${section - 6}`);
-        const inputGroup = document.getElementsByClassName(`input${section - 6}`);
-        const properties = ["order", "flexGrow", "flexShrink"];
-        console.log(properties[section - 6]);
-        for(let i = 0; i < itemGroup.length; i++) {
-            itemGroup[i].style[properties[section - 6]] = inputGroup[i].value;
+        const currentDivs = sectionArr[section].divs;
+        const currentProperty = sectionArr[section].property;
+        const currentInputs = sectionArr[section].inputs;
+        for(let i = 0; i < currentDivs.length; i++) {
+            currentDivs[i].style[currentProperty] = currentInputs[i].value;
         }
     }
 }
 
-select[0].addEventListener("change", changeClass(1));
-select[1].addEventListener("change", changeClass(2));
-select[2].addEventListener("change", changeClass(3));
-select[3].addEventListener("change", changeClass(4));
-for(let i = 4; i < 6; i++) {
-    select[i].addEventListener("change", changeClass(5));
+for(let i = 1; i < sectionArr.length; i++) {
+    for(let j = 0; j < sectionArr[i].inputs.length; j++) {
+        if(sectionArr[i].hasOwnProperty("classes")) {
+            sectionArr[i].inputs[j].addEventListener("change", changeClass(i));
+        } else {
+            sectionArr[i].inputs[j].addEventListener("change", changeStyle(i));
+        } 
+    }
 }
-for(let i = 0; i < 4; i++) {
-    input[i].addEventListener("change", changeStyle(6));
-}
-for(let i = 4; i < 7; i++) {
-    input[i].addEventListener("change", changeStyle(7));
-}
-for(let i = 7; i < 10; i++) {
-    input[i].addEventListener("change", changeStyle(8));
-}
-select[6].addEventListener("change", changeClass(9));
