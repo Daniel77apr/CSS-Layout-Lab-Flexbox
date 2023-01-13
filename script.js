@@ -112,3 +112,9 @@ for(let i = 1; i < sectionArr.length; i++) {
         sectionArr[i].inputs[j].addEventListener("change", sectionArr[i].function(i));
     }
 }
+
+const root = document.querySelector(":root");
+
+const rs = getComputedStyle(root);
+
+console.log(rs.getPropertyValue("--dark-blue"));

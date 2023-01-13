@@ -28,7 +28,46 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--alice-blue);
+    background-color: rgb(40, 40, 49);
+}
+
+.nav-bar {
+    display: flex;
+    position: fixed;
+    background-color: var(--dark-blue);
+    width: 100%;
+    padding: 1rem 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.nav-bar a {
+    color: var(--alice-blue); 
+    margin-left: 2rem;
+}
+
+.sections {
+    color: var(--alice-blue);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 2rem;
+    top: 4rem;
+}
+
+.sections p {
+    font-weight: 700;
+}
+
+.sections a {
+    color: inherit;
+    margin: 0.2rem 0;
 }
 
 section {
@@ -37,9 +76,14 @@ section {
 }
 
 h1 {
-    color: var(--dark-blue);
-    margin: var(--margin);
-    color: var(--dark-blue)
+    color: var(--alice-blue);
+    margin-top: 4rem;
+    margin-bottom: var(--margin);
+}
+
+h2 {
+    padding-top: 4rem;
+    margin-top: -4rem;
 }
 
 .container, .code-div {
