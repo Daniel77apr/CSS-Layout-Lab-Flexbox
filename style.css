@@ -4,11 +4,10 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    
 }
 
 :root {
-    font-family: sans-serif;
+    font-family: 'Quicksand', sans-serif;
     /* COLORS */
     --container: rgb(133, 71, 184);
     --item: orange;
@@ -19,8 +18,8 @@
     --alice-blue: aliceblue;
     --dark-blue: rgb(29, 29, 37);
     /* SIZES */
-    --section-width: 500px;
-    --margin: 1rem;
+    --section-width: 480px;
+    --margin: calc(var(--section-width) / 30); /* 16px */
     --border: 2px;
     --item-width: calc((var(--section-width) - (var(--margin) * 2 + var(--border) * 2)) / 4);
 }
@@ -58,6 +57,7 @@ h1 {
     background-color: var(--container);
     padding: var(--margin);
     justify-content: center;
+    font-weight: 700;
 }
 
 .item {
@@ -98,6 +98,7 @@ select, input {
     font-family: inherit;
     color: inherit;
     border: 1px solid gray;
+    font-size: inherit;
 }
 
 input {
@@ -240,17 +241,17 @@ input {
 }
 
 .container4 .item:nth-of-type(1), .container4 .item:nth-of-type(4) {
-    min-height: 80px;
+    min-height: calc(var(--item-width) * 0.7);
     align-items: flex-start;
 }
 
 .container4 .item:nth-of-type(2) {
-    min-height: 120px;
+    min-height: var(--item-width);
     align-items: flex-end;
 }
 
 .container4 .item:nth-of-type(3) {
-    min-height: 50px;
+    min-height: calc(var(--item-width) * 0.5);
     align-items: center;
 }
 
@@ -292,7 +293,7 @@ input {
 
 .container5 .item:nth-of-type(1), .container5 .item:nth-of-type(7) {
     width: calc(var(--item-width) * 1.5);
-    min-height: 70px;
+    min-height: calc(var(--item-width) * 0.6);
 }
 
 .container5 .item:nth-of-type(2), .container5 .item:nth-of-type(6) {
@@ -304,7 +305,7 @@ input {
 } 
 
 .container5 .item:nth-of-type(4) {
-    min-height: 80px;
+    min-height: calc(var(--item-width) * 0.7);
     align-items: flex-end;
 }
 
@@ -427,4 +428,19 @@ input {
 .align-self-baseline {
     align-self: baseline;
     color: var(--alice-blue) !important;
+}
+
+@media (max-width: 550px) {
+    :root {
+        --section-width: 350px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    :root {
+        --section-width: 250px;
+        --border: 1px;
+        font-size: 10px;
+    }
 }
