@@ -11,9 +11,13 @@
     <title>CSS Flexbox</title>
 </head>
 <body>
-    <div class="nav-bar">
-        <a href="">Home</a>
-        <a href="">Guides</a>
+    <div class="nav-bar" id="nav-bar">
+        <a href="" class="home">Home</a>
+        <a id="guides">Guides</a>
+        <div class="guides-div" id="guides-div">
+            <a href="">CSS Flexbox</a>
+            <a href="">CSS Grid (coming soon)</a>
+        </div>
     </div>
     <div class="sections">
         <p>Sections:</p>
@@ -32,8 +36,8 @@
         <div class="container container0">
             <p>container</p>
             <div class="item">item</div>
-            <div class="item">item</div>
-            <div class="item">item</div>
+            <div class="item margin-left">item</div>
+            <div class="item margin-left">item</div>
         </div>
         <div class="code-div">
             <code>
@@ -307,8 +311,8 @@
         <h2 class="item-color" id="align-self">align-self</h2>
         <div class="container container9">
             <div class="item"></div>
-            <div class="item" id="div9">Text</div>
-            <div class="item"></div>
+            <div class="item margin-left" id="div9">Text</div>
+            <div class="item margin-left"></div>
         </div>
         <div class="code-div">
             <code>

@@ -9,14 +9,16 @@
 :root {
     font-family: 'Quicksand', sans-serif;
     /* COLORS */
-    --container: rgb(133, 71, 184);
-    --item: orange;
-    --item-dark: rgb(192, 126, 3);
-    --property: rgb(0, 217, 255);
-    --value: rgb(255, 255, 112);
+    /*--container: rgb(133, 71, 184);
+    --item: orange;*/
+    --container: rgb(0, 129, 201);
+    --item: rgb(255, 177, 0);
+    --property: rgb(194, 82, 223);
+    --value: yellow;
     --comment: gray;
     --alice-blue: aliceblue;
     --dark-blue: rgb(29, 29, 37);
+    --grayish-blue: rgb(40, 40, 49);
     /* SIZES */
     --section-width: 480px;
     --margin: calc(var(--section-width) / 30); /* 16px */
@@ -24,50 +26,16 @@
     --item-width: calc((var(--section-width) - (var(--margin) * 2 + var(--border) * 2)) / 4);
 }
 
+html {
+    scroll-padding-top: 4rem;
+    scroll-behavior: smooth;
+}
+
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(40, 40, 49);
-}
-
-.nav-bar {
-    display: flex;
-    position: fixed;
-    background-color: var(--dark-blue);
-    width: 100%;
-    padding: 1rem 0;
-}
-
-a {
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-.nav-bar a {
-    color: var(--alice-blue); 
-    margin-left: 2rem;
-}
-
-.sections {
-    color: var(--alice-blue);
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    left: 2rem;
-    top: 4rem;
-}
-
-.sections p {
-    font-weight: 700;
-}
-
-.sections a {
-    color: inherit;
-    margin: 0.2rem 0;
+    background-color: var(--grayish-blue);
 }
 
 section {
@@ -81,14 +49,13 @@ h1 {
     margin-bottom: var(--margin);
 }
 
-h2 {
+/*h2 {
     padding-top: 4rem;
     margin-top: -4rem;
-}
+}*/
 
 .container, .code-div {
     border-radius: 10px;
-    color: var(--alice-blue);
     margin: var(--margin) 0;
 }
 
@@ -99,6 +66,7 @@ h2 {
 .container {
     display: flex;
     background-color: var(--container);
+    color: var(--dark-blue);
     padding: var(--margin);
     justify-content: center;
     font-weight: 700;
@@ -106,13 +74,14 @@ h2 {
 
 .item {
     background-color: var(--item);
-    color: var(--alice-blue);
+    color: var(--dark-blue);
     padding: var(--margin) 0;
     text-align: center;
     border-radius: 7px;
 }
 
 .code-div {
+    color: var(--alice-blue);
     padding: var(--margin);
     background-color: var(--dark-blue);
 }
@@ -150,6 +119,74 @@ input {
     padding-left: 0.5ch;
 }
 
+.margin-left {
+    margin-left: var(--margin);
+}
+
+/* NAV BAR */
+
+.nav-bar {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    background-color: var(--dark-blue);
+    width: 100%;
+    height: 3rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.nav-bar a {
+    color: var(--alice-blue); 
+    background-color: inherit;
+    height: 100%;
+    line-height: 3rem;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 10;
+}
+
+a.home {
+    padding-left: 2rem;
+}
+
+.guides-div {
+    display: flex;
+    position: absolute;
+    transform: translateX(-47%);
+    transition: translate 0.4s;
+    background-color: var(--grayish-blue);
+}
+
+.translate {
+    translate: 100%;
+}
+
+.sections {
+    color: var(--alice-blue);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 2rem;
+    top: 4rem;
+}
+
+.sections p {
+    font-weight: 700;
+}
+
+.sections a {
+    color: inherit;
+    margin: 0.2rem 0;
+}
+
 /* SECTION 0 (AND SECTION 9)*/
 
 .container0 {
@@ -166,10 +203,6 @@ input {
 
 .container0 .item, .container9 .item {
     width: var(--item-width);
-}
-
-.container0 .item:not(:nth-of-type(1)), .container9 .item:not(:nth-of-type(1)) {
-    margin-left: var(--margin);
 }
 
 .container0 .item:nth-of-type(2), .container9 .item:nth-of-type(2) {
@@ -472,6 +505,12 @@ input {
 .align-self-baseline {
     align-self: baseline;
     color: var(--alice-blue) !important;
+}
+
+@media (max-width: 800px) {
+    .sections {
+        display: none;
+    }
 }
 
 @media (max-width: 550px) {

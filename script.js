@@ -113,8 +113,19 @@ for(let i = 1; i < sectionArr.length; i++) {
     }
 }
 
-const root = document.querySelector(":root");
 
-const rs = getComputedStyle(root);
+const guidesButton = document.getElementById("guides");
+const guidesDiv = document.getElementById("guides-div");
 
-console.log(rs.getPropertyValue("--dark-blue"));
+function slide() {
+    guidesDiv.className += " translate";
+}
+
+function slideBack() {
+    guidesDiv.className = guidesDiv.className.removeClass("translate");
+}
+
+guidesDiv.addEventListener("mouseover", slide);
+guidesButton.addEventListener("mouseover", slide);
+guidesDiv.addEventListener("mouseout", slideBack);
+guidesButton.addEventListener("mouseout", slideBack);
