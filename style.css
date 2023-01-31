@@ -173,6 +173,7 @@ a.home {
     position: fixed;
     left: 2rem;
     top: 4rem;
+    background-color: var(--grayish-blue);
 }
 
 .sections p {
@@ -514,7 +515,22 @@ a.home {
 
 @media (max-width: 800px) {
     .sections {
-        display: none;
+        position: sticky;
+        top: 3rem;
+        left: initial;
+        height: 7.5rem;
+        flex-wrap: wrap;
+        width: min(var(--section-width), calc(100vw - var(--body-padding) * 2));
+        margin-bottom: 2.5rem;
+        padding: 1rem 0;
+    }
+
+    .sections p {
+        height: 100%;
+    }
+
+    html {
+        scroll-padding-top: 11.5rem;
     }
 }
 
