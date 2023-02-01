@@ -1,6 +1,24 @@
-/* TO DO: 
-    - Define removeClass method to work with className only insted of String
-*/
+// Navigation bar
+
+const guidesButton = document.getElementById("guides");
+
+const guidesDiv = document.getElementById("guides-div");
+
+function slide() {
+    guidesDiv.className += " translate";
+}
+
+function slideBack() {
+    guidesDiv.className = guidesDiv.className.removeClass("translate");
+}
+
+guidesDiv.addEventListener("mouseover", slide);
+guidesButton.addEventListener("mouseover", slide);
+guidesDiv.addEventListener("mouseout", slideBack);
+guidesButton.addEventListener("mouseout", slideBack);
+
+
+// Body
 
 const selectEls = document.getElementsByTagName("select");
 
@@ -112,20 +130,3 @@ for(let i = 1; i < sectionArr.length; i++) {
         sectionArr[i].inputs[j].addEventListener("change", sectionArr[i].function(i));
     }
 }
-
-
-const guidesButton = document.getElementById("guides");
-const guidesDiv = document.getElementById("guides-div");
-
-function slide() {
-    guidesDiv.className += " translate";
-}
-
-function slideBack() {
-    guidesDiv.className = guidesDiv.className.removeClass("translate");
-}
-
-guidesDiv.addEventListener("mouseover", slide);
-guidesButton.addEventListener("mouseover", slide);
-guidesDiv.addEventListener("mouseout", slideBack);
-guidesButton.addEventListener("mouseout", slideBack);
