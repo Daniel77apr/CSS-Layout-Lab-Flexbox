@@ -1,3 +1,21 @@
+String.prototype.removeClass = function(...str) {
+    /* Applied to a string of CSS classes, it accepts multiple classes as arguments and returns an array equal to the original, but without the given classes*/
+    const arr = this.split(" ");
+    let newArr = [];
+    for(let i = 0; i < arr.length; i++) {
+        let different = true;
+        for(let j = 0; j < str.length; j++) {
+            if(arr[i] == str[j]) {
+                different = false;
+            }
+        }
+        if(different) {
+            newArr.push(arr[i]);
+        }
+    }
+    return newArr.join(" ");
+};
+
 // Navigation bar
 
 const guidesButton = document.getElementById("guides");
@@ -81,24 +99,6 @@ const sectionArr = [
         function: changeClass
     }
 ];
-
-String.prototype.removeClass = function(...str) {
-    /* Applied to a string of CSS classes, it accepts multiple classes as arguments and returns an array equal to the original, but without the given classes*/
-    const arr = this.split(" ");
-    let newArr = [];
-    for(let i = 0; i < arr.length; i++) {
-        let different = true;
-        for(let j = 0; j < str.length; j++) {
-            if(arr[i] == str[j]) {
-                different = false;
-            }
-        }
-        if(different) {
-            newArr.push(arr[i]);
-        }
-    }
-    return newArr.join(" ");
-};
 
 function changeClass(section) {
     // Depending on the given section number, removes certain classes from the container div in that section and adds new ones based on the selector values in the code div.
