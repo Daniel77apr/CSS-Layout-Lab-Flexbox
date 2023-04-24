@@ -352,7 +352,7 @@ a.home {
 
 .align-items-baseline {
     align-items: baseline;
-    color: var(--alice-blue) !important;
+    color: var(--dark-blue) !important;
 }
 
 /* SECTION 5: ALIGN-CONTENT (MORE IN SECTION 4)*/
@@ -507,7 +507,7 @@ a.home {
 
 .align-self-baseline {
     align-self: baseline;
-    color: var(--alice-blue) !important;
+    color: var(--dark-blue) !important;
 }
 
 @media (max-width: 800px) {
