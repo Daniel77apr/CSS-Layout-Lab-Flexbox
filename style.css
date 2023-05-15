@@ -136,6 +136,10 @@ a {
     text-decoration: none;
 }
 
+.logomark {
+    height: 30px;
+}
+
 a:hover {
     text-decoration: underline;
     cursor: pointer;
@@ -153,12 +157,14 @@ a:hover {
 
 a.home {
     padding-left: 2rem;
+    display: flex;
+    align-items: center;
 }
 
 .guides-div {
     display: flex;
     position: absolute;
-    transform: translateX(-19%);
+    transform: translateX(-28%);
     transition: translate 0.4s;
     background-color: var(--grayish-blue);
 }
