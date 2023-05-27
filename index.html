@@ -115,6 +115,7 @@
             <a href="#align-items">> align-items</a>
             <a href="#align-content">> align-content</a>
             <a href="#order">> order</a>
+            <a href="#flex-basis">> flex-basis</a>
             <a href="#flex-grow">> flex-grow</a>
             <a href="#flex-shrink">> flex-shrink</a>
             <a href="#align-self">> align-self</a>
@@ -320,15 +321,52 @@
             </div>
         </section>
         <section>
+            <h2 class="item-color" id="flex-basis">flex-basis</h2>
+            <div class="container container7" id="div7">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+            <div class="code-div">
+                <code>
+                    <span class="comment-color">/* Specifies the initial length of the item's dimension that runs along the main axis. This can be used as a base for other properties such as flex-grow or flex-shrink, which you will learn about next. */</span><br>
+                    <br>
+                    <span class="container-color">.container</span> {<br>
+                    &emsp; <span class="property-color">flex-direction:</span>
+                    <span class="value-color">
+                        <select name="" id="">
+                            <option value="row">row</option>
+                            <option value="column">column</option>
+                        </select>;
+                    </span><br>
+                    }<br>
+                    <br>
+                    <span class="item-color">.item</span> {<br>
+                    &emsp; <span class="property-color">flex-basis:</span>
+                    <span class="value-color">
+                        <select name="" id="">
+                            <option value="flex-basis-50px">50px</option>
+                            <option value="flex-basis-100px">100px</option>
+                        </select>;
+                    </span><br>
+                    &emsp; <span class="property-color">width:</span>
+                    <span class="value-color">50px</span>;<br>
+                    &emsp; <span class="property-color">height:</span>
+                    <span class="value-color">50px</span>;<br>
+                    }
+                </code>
+            </div>
+        </section>
+        <section>
             <h2 class="item-color" id="flex-grow">flex-grow</h2>
-            <div class="container container7">
+            <div class="container container8">
                 <div class="item dynamic-item1">1</div>
                 <div class="item dynamic-item1">2</div>
                 <div class="item dynamic-item1">3</div>
             </div>
             <div class="code-div">
                 <code>
-                    <span class="comment-color">/* Defines the proportion of available space that an item should take up to grow. */</span><br>
+                    <span class="comment-color">/* Defines the proportion of available space that an item should take up to grow along the main axis. */</span><br>
                     <br>
                     <span class="item-color">.item</span> {<br>
                     &emsp; <span class="property-color">flex-basis:</span>
@@ -360,14 +398,14 @@
         </section>
         <section>
             <h2 class="item-color" id="flex-shrink">flex-shrink</h2>
-            <div class="container container8">
+            <div class="container container9">
                 <div class="item dynamic-item2">1</div>
                 <div class="item dynamic-item2">2</div>
                 <div class="item dynamic-item2">3</div>
             </div>
             <div class="code-div">
                 <code>
-                    <span class="comment-color">/* Defines the proportion of space that an item should give up to shrink. */</span><br>
+                    <span class="comment-color">/* Defines the proportion of space that an item should give up to shrink along the main axis. */</span><br>
                     <br>
                     <span class="item-color">.item</span> {<br>
                     &emsp; <span class="property-color">flex-basis:</span>
@@ -399,7 +437,7 @@
         </section>
         <section>
             <h2 class="item-color" id="align-self">align-self</h2>
-            <div class="container container9">
+            <div class="container container10">
                 <div class="item"></div>
                 <div class="item margin-left" id="div9">Text</div>
                 <div class="item margin-left"></div>

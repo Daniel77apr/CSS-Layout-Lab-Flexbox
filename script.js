@@ -81,6 +81,12 @@ const sectionArr = [
         function: changeStyle
     },
     {
+        inputs: [selectEls[6], selectEls[7]],
+        classes: ["row", "column", "flex-basis-50px", "flex-basis-100px"],
+        div: document.getElementById(`div7`),
+        function: changeClass
+    },
+    {
         inputs: [inputEls[4], inputEls[5], inputEls[6]],
         property: "flexGrow",
         divs: document.getElementsByClassName("dynamic-item1"),
@@ -93,7 +99,7 @@ const sectionArr = [
         function: changeStyle
     },
     {
-        inputs: [selectEls[6]],
+        inputs: [selectEls[8]],
         classes: ["align-self-auto", "align-self-stretch", "align-self-flex-start", "align-self-flex-end", "align-self-center", "align-self-baseline"],
         div: document.getElementById(`div9`),
         function: changeClass
